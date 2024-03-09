@@ -40,11 +40,8 @@
             <td th:text="${customer.email}"></td>
             <td th:text="${customer.customerType.name}"></td>
             <th>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalDelete"
-                        th:data-id="${customer.id}" th:data-title="${customer.name}"
-                        th:onclick="deleteInfoDeleteCustomer(this.getAttribute('data-id'),this.getAttribute('data-title'))">
-                    Edit
-                </button>
+
+                <a th:href="@{/edit/{id}(id=${customer.id})}">Edit</a>
 
                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                         data-target="#exampleModalDelete"

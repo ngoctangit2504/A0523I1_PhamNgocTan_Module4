@@ -34,7 +34,12 @@ public class CustomerService implements ICustomerSrvice{
     }
 
     @Override
+    public Customer updateCustomer(Customer updateCustomer) {
+        return iCustomerRepository.save(updateCustomer);
+    }
+
+    @Override
     public Customer findOne(Long id) {
-        return iCustomerRepository.findById(id).get();
+        return iCustomerRepository.findById(id).orElse(null);
     }
 }

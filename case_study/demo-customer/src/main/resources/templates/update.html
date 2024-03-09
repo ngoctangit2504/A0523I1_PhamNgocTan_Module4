@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<h2>Update Customer</h2>
+<form th:action="@{/update/{id}(id=${customer.id})}" th:object="${customer}" method="post">
+
+    <table>
+        <tr>
+            <th><label for="name">Name:</label></th>
+            <td><input type="text" id="name" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <th><label for="birthday">Birthday:</label></th>
+            <td><input type="date" id="birthday" th:field="*{birthday}" /></td>
+        </tr>
+        <tr>
+            <th><label for="gender">Gender:</label></th>
+            <td><input type="text" id="gender" th:field="*{gender}" /></td>
+        </tr>
+        <tr>
+            <th><label for="idCard">ID Card:</label></th>
+            <td><input type="text" id="idCard" th:field="*{idCard}" /></td>
+        </tr>
+        <tr>
+            <th><label for="phone">Phone:</label></th>
+            <td><input type="text" id="phone" th:field="*{phone}" /></td>
+        </tr>
+        <tr>
+            <th><label for="email">Email:</label></th>
+            <td><input type="email" id="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <th><label>Customer Type:</label></th>
+            <td><select th:field="*{customerType}">
+                <option th:each="customerType : ${listCustomerType}" th:value="${customerType.id}"
+                        th:text="${customerType.name}"></option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td> <button type="submit">Update</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

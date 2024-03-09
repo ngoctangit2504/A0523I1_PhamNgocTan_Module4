@@ -12,5 +12,7 @@ public interface ICustomerSrvice {
 
     void delete(Long id);
 
+    Customer updateCustomer(Customer updateCustomer);
+
     Customer findOne(Long id);
 }

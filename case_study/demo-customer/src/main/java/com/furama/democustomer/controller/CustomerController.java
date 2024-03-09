@@ -93,5 +93,22 @@ public class CustomerController {
         return "redirect:/";
     }
 
+
+
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        Customer customer = iCustomerService.findOne(id);
+        model.addAttribute("customer", customer);
+        return "update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateCustomer(@PathVariable("id") Long id, @ModelAttribute("customer") Customer updatedCustomer) {
+        updatedCustomer.setId(id);
+        iCustomerService.updateCustomer(updatedCustomer);
+        return "redirect:/";
+    }
+
 }
 
