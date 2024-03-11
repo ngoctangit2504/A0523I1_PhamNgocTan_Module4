@@ -12,7 +12,8 @@ public class CustomerDTO implements Validator {
     @NotBlank(message = "The employee name must not be empty")
     @Size(min = 3, message = "> 3 characters")
     @Size(max = 15, message = "< 15 characters")
-    @Pattern(regexp = "^[A-Z][a-zA-Z]*(?:\\\\s[A-Z][a-zA-Z]*)*$", message = "only contain character")
+    @Pattern(regexp = "^[A-Z][a-zA-Z]*(?:\\s[A-Z][a-zA-Z]*)*$", message = "only contain character")
+//    @Pattern(regexp = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)+$", message = "only contain character")
     private String name;
 
     private Date birthday;
